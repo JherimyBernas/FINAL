@@ -1,4 +1,5 @@
-# Start here
+from tkinter import *
+
 
 class BinarySearchTreeNode:
     def __init__(self, data):
@@ -76,3 +77,10 @@ def build_tree(elements):
         root.add_child(elements[i])
 
     return root
+
+
+final1 = Tk()
+final1.title("Data Structures and Algorithms")
+final1.geometry("425x325")
+
+final1.mainloop()
