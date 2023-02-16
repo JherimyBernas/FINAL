@@ -83,6 +83,14 @@ final1 = Tk()
 final1.title("Data Structures and Algorithms")
 final1.geometry("425x325")
 
+
+def btn_click(number):
+    global expression
+    expression += str(number)
+    main_str.set(expression)
+
+
+expression = ""
 main_str = StringVar()
 inputs_str = StringVar()
 result_str = StringVar()
@@ -91,16 +99,16 @@ dollar_sign = Label(final1, text="Enter a number:").place(x=50, y=20)
 main_box = Label(final1, width=32, textvariable=main_str, borderwidth=3, relief="sunken", anchor="center")\
     .place(x=149, y=20)
 
-button1 = Button(final1, text="1", width=4, height=2,  borderwidth=3).place(x=50, y=50)
-button2 = Button(final1, text="2", width=4, height=2, borderwidth=3).place(x=90, y=50)
-button3 = Button(final1, text="3", width=4, height=2, borderwidth=3).place(x=130, y=50)
-button4 = Button(final1, text="4", width=4, height=2, borderwidth=3).place(x=50, y=92)
-button5 = Button(final1, text="5", width=4, height=2, borderwidth=3).place(x=90, y=92)
-button6 = Button(final1, text="6", width=4, height=2, borderwidth=3).place(x=130, y=92)
-button7 = Button(final1, text="7", width=4, height=2, borderwidth=3).place(x=50, y=134)
-button8 = Button(final1, text="8", width=4, height=2, borderwidth=3).place(x=90, y=134)
-button9 = Button(final1, text="9", width=4, height=2, borderwidth=3).place(x=130, y=134)
-button0 = Button(final1, text="0", width=4, height=2, borderwidth=3).place(x=90, y=176)
+button1 = Button(final1, text="1", width=4, height=2,  borderwidth=3, command=lambda: btn_click(1)).place(x=50, y=50)
+button2 = Button(final1, text="2", width=4, height=2, borderwidth=3, command=lambda: btn_click(2)).place(x=90, y=50)
+button3 = Button(final1, text="3", width=4, height=2, borderwidth=3, command=lambda: btn_click(3)).place(x=130, y=50)
+button4 = Button(final1, text="4", width=4, height=2, borderwidth=3, command=lambda: btn_click(4)).place(x=50, y=92)
+button5 = Button(final1, text="5", width=4, height=2, borderwidth=3, command=lambda: btn_click(5)).place(x=90, y=92)
+button6 = Button(final1, text="6", width=4, height=2, borderwidth=3, command=lambda: btn_click(6)).place(x=130, y=92)
+button7 = Button(final1, text="7", width=4, height=2, borderwidth=3, command=lambda: btn_click(7)).place(x=50, y=134)
+button8 = Button(final1, text="8", width=4, height=2, borderwidth=3, command=lambda: btn_click(8)).place(x=90, y=134)
+button9 = Button(final1, text="9", width=4, height=2, borderwidth=3, command=lambda: btn_click(9)).place(x=130, y=134)
+button0 = Button(final1, text="0", width=4, height=2, borderwidth=3, command=lambda: btn_click(0)).place(x=90, y=176)
 button_d = Button(final1, text="D", width=4, height=2, borderwidth=3).place(x=130, y=176)
 
 button_enter = Button(final1, text="Enter", width=11, borderwidth=3).place(x=200, y=60)
