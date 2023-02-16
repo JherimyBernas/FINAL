@@ -82,6 +82,7 @@ def build_tree(elements):
 final1 = Tk()
 final1.title("Data Structures and Algorithms")
 final1.geometry("425x325")
+number_tree = []
 
 
 def btn_click(number):
@@ -94,6 +95,29 @@ def btn_d():
     global expression
     expression = expression[:-1]
     main_str.set(expression)
+
+
+def btn_enter():
+    try:
+        new_num = int(expression)
+        if new_num in number_tree:
+            raise ValueError
+        if new_num == 0:
+            raise ValueError
+        if len(number_tree) == 10:
+            raise ValueError
+    except ValueError:
+        exp_clear()
+    else:
+        number_tree.append(new_num)
+        inputs_str.set(number_tree)
+        exp_clear()
+
+
+def exp_clear():
+    global expression
+    expression = ""
+    main_str.set("")
 
 
 expression = ""
@@ -117,7 +141,7 @@ button9 = Button(final1, text="9", width=4, height=2, borderwidth=3, command=lam
 button0 = Button(final1, text="0", width=4, height=2, borderwidth=3, command=lambda: btn_click(0)).place(x=90, y=176)
 button_d = Button(final1, text="D", width=4, height=2, borderwidth=3, command=btn_d).place(x=130, y=176)
 
-button_enter = Button(final1, text="Enter", width=11, borderwidth=3).place(x=200, y=60)
+button_enter = Button(final1, text="Enter", width=11, borderwidth=3, command=btn_enter).place(x=200, y=60)
 button_submit = Button(final1, text="Submit", width=11, borderwidth=3).place(x=200, y=88)
 button_sum = Button(final1, text="Sum", width=11, borderwidth=3).place(x=200, y=116)
 button_delete = Button(final1, text="Delete", width=11, borderwidth=3).place(x=200, y=144)
