@@ -22,6 +22,22 @@ class BinarySearchTreeNode:
             else:
                 self.right = BinarySearchTreeNode(data)
 
+    def search(self, val):
+        if self.data == val:
+            return True
+
+        if val < self.data:
+            if self.left:
+                return self.left.search(val)
+            else:
+                return False
+
+        if val > self.data:
+            if self.right:
+                return self.right.search(val)
+            else:
+                return False
+
     def in_order_traversal(self):
         elements = []
         if self.left:
@@ -120,11 +136,19 @@ def exp_clear():
     main_str.set("")
 
 
-def btn_submit():
-    if len(number_tree) == 0:
-        return
+def btn_search():
+    try:
+        new_num = int(expression)
+        if new_num == 0:
+            raise ValueError
+    except ValueError:
+        exp_clear()
     else:
-        result_str.set(number_tree)
+        if new_num in number_tree:
+            result_str.set("True")
+        else:
+            result_str.set("False")
+        exp_clear()
 
 
 def btn_sum():
@@ -173,7 +197,7 @@ button0 = Button(final1, text="0", width=4, height=2, borderwidth=3, command=lam
 button_d = Button(final1, text="D", width=4, height=2, borderwidth=3, command=btn_d).place(x=130, y=176)
 
 button_enter = Button(final1, text="Enter", width=11, borderwidth=3, command=btn_enter).place(x=200, y=60)
-button_submit = Button(final1, text="Submit", width=11, borderwidth=3, command=btn_submit).place(x=200, y=88)
+button_search = Button(final1, text="Search", width=11, borderwidth=3, command=btn_search).place(x=200, y=88)
 button_sum = Button(final1, text="Sum", width=11, borderwidth=3, command=btn_sum).place(x=200, y=116)
 button_delete = Button(final1, text="Delete", width=11, borderwidth=3, command=btn_delete).place(x=200, y=144)
 button_clear = Button(final1, text="Clear", width=11, borderwidth=3).place(x=200, y=172)
