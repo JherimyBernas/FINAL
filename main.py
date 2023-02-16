@@ -90,6 +90,12 @@ def btn_click(number):
     main_str.set(expression)
 
 
+def btn_d():
+    global expression
+    expression = expression[:-1]
+    main_str.set(expression)
+
+
 expression = ""
 main_str = StringVar()
 inputs_str = StringVar()
@@ -109,7 +115,7 @@ button7 = Button(final1, text="7", width=4, height=2, borderwidth=3, command=lam
 button8 = Button(final1, text="8", width=4, height=2, borderwidth=3, command=lambda: btn_click(8)).place(x=90, y=134)
 button9 = Button(final1, text="9", width=4, height=2, borderwidth=3, command=lambda: btn_click(9)).place(x=130, y=134)
 button0 = Button(final1, text="0", width=4, height=2, borderwidth=3, command=lambda: btn_click(0)).place(x=90, y=176)
-button_d = Button(final1, text="D", width=4, height=2, borderwidth=3).place(x=130, y=176)
+button_d = Button(final1, text="D", width=4, height=2, borderwidth=3, command=btn_d).place(x=130, y=176)
 
 button_enter = Button(final1, text="Enter", width=11, borderwidth=3).place(x=200, y=60)
 button_submit = Button(final1, text="Submit", width=11, borderwidth=3).place(x=200, y=88)
