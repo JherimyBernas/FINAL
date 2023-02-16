@@ -168,6 +168,33 @@ def btn_clear():
     number_tree.clear()
 
 
+def btn_in():
+    if len(number_tree) == 0:
+        return
+    else:
+        name_tree = build_tree(number_tree)
+        order1 = name_tree.in_order_traversal()
+        result_str.set(order1)
+
+
+def btn_pre():
+    if len(number_tree) == 0:
+        return
+    else:
+        name_tree = build_tree(number_tree)
+        order = name_tree.pre_order_traversal()
+        result_str.set(order)
+
+
+def btn_post():
+    if len(number_tree) == 0:
+        return
+    else:
+        name_tree = build_tree(number_tree)
+        order = name_tree.post_order_traversal()
+        result_str.set(order)
+
+
 expression = ""
 main_str = StringVar()
 inputs_str = StringVar()
@@ -200,9 +227,9 @@ inputs = Label(final1, textvariable=inputs_str, width=46, borderwidth=2, relief=
 result = Label(final1, textvariable=result_str, width=46, borderwidth=2, relief="sunken", anchor="center")\
     .place(x=50, y=265)
 
-button_in = Button(final1, text="In-Order", width=11, borderwidth=3).place(x=289, y=60)
-button_pre = Button(final1, text="Pre-Order", width=11, borderwidth=3).place(x=289, y=88)
-button_post = Button(final1, text="Post-Order", width=11, borderwidth=3).place(x=289, y=116)
+button_in = Button(final1, text="In-Order", width=11, borderwidth=3, command=btn_in).place(x=289, y=60)
+button_pre = Button(final1, text="Pre-Order", width=11, borderwidth=3, command=btn_pre).place(x=289, y=88)
+button_post = Button(final1, text="Post-Order", width=11, borderwidth=3, command=btn_post).place(x=289, y=116)
 button_min = Button(final1, text="Min", width=11, borderwidth=3).place(x=289, y=144)
 button_max = Button(final1, text="Max", width=11, borderwidth=3).place(x=289, y=172)
 final1.mainloop()
