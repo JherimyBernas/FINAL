@@ -120,6 +120,13 @@ def exp_clear():
     main_str.set("")
 
 
+def btn_submit():
+    if len(number_tree) == 0:
+        return
+    else:
+        result_str.set(number_tree)
+
+
 expression = ""
 main_str = StringVar()
 inputs_str = StringVar()
@@ -142,7 +149,7 @@ button0 = Button(final1, text="0", width=4, height=2, borderwidth=3, command=lam
 button_d = Button(final1, text="D", width=4, height=2, borderwidth=3, command=btn_d).place(x=130, y=176)
 
 button_enter = Button(final1, text="Enter", width=11, borderwidth=3, command=btn_enter).place(x=200, y=60)
-button_submit = Button(final1, text="Submit", width=11, borderwidth=3).place(x=200, y=88)
+button_submit = Button(final1, text="Submit", width=11, borderwidth=3, command=btn_submit).place(x=200, y=88)
 button_sum = Button(final1, text="Sum", width=11, borderwidth=3).place(x=200, y=116)
 button_delete = Button(final1, text="Delete", width=11, borderwidth=3).place(x=200, y=144)
 button_clear = Button(final1, text="Clear", width=11, borderwidth=3).place(x=200, y=172)
