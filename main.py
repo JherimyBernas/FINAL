@@ -22,22 +22,6 @@ class BinarySearchTreeNode:
             else:
                 self.right = BinarySearchTreeNode(data)
 
-    def search(self, val):
-        if self.data == val:
-            return True
-
-        if val < self.data:
-            if self.left:
-                return self.left.search(val)
-            else:
-                return False
-
-        if val > self.data:
-            if self.right:
-                return self.right.search(val)
-            else:
-                return False
-
     def in_order_traversal(self):
         elements = []
         if self.left:
@@ -175,6 +159,15 @@ def btn_delete():
         exp_clear()
 
 
+def btn_clear():
+    global expression
+    expression = ""
+    main_str.set("")
+    inputs_str.set("")
+    result_str.set("")
+    number_tree.clear()
+
+
 expression = ""
 main_str = StringVar()
 inputs_str = StringVar()
@@ -200,7 +193,7 @@ button_enter = Button(final1, text="Enter", width=11, borderwidth=3, command=btn
 button_search = Button(final1, text="Search", width=11, borderwidth=3, command=btn_search).place(x=200, y=88)
 button_sum = Button(final1, text="Sum", width=11, borderwidth=3, command=btn_sum).place(x=200, y=116)
 button_delete = Button(final1, text="Delete", width=11, borderwidth=3, command=btn_delete).place(x=200, y=144)
-button_clear = Button(final1, text="Clear", width=11, borderwidth=3).place(x=200, y=172)
+button_clear = Button(final1, text="Clear", width=11, borderwidth=3, command=btn_clear).place(x=200, y=172)
 
 inputs = Label(final1, textvariable=inputs_str, width=46, borderwidth=2, relief="sunken", anchor="center")\
     .place(x=50, y=230)
