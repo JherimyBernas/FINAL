@@ -83,8 +83,12 @@ final1 = Tk()
 final1.title("Data Structures and Algorithms")
 final1.geometry("425x325")
 
+main_str = StringVar()
+inputs_str = StringVar()
+result_str = StringVar()
+
 dollar_sign = Label(final1, text="Enter a number:").place(x=50, y=20)
-main_box = Label(final1, width=32, borderwidth=3, relief="sunken", anchor="center")\
+main_box = Label(final1, width=32, textvariable=main_str, borderwidth=3, relief="sunken", anchor="center")\
     .place(x=149, y=20)
 
 button1 = Button(final1, text="1", width=4, height=2,  borderwidth=3).place(x=50, y=50)
@@ -105,9 +109,9 @@ button_sum = Button(final1, text="Sum", width=11, borderwidth=3).place(x=200, y=
 button_delete = Button(final1, text="Delete", width=11, borderwidth=3).place(x=200, y=144)
 button_clear = Button(final1, text="Clear", width=11, borderwidth=3).place(x=200, y=172)
 
-inputs = Label(final1, width=46, borderwidth=2, relief="sunken", anchor="center")\
+inputs = Label(final1, textvariable=inputs_str, width=46, borderwidth=2, relief="sunken", anchor="center")\
     .place(x=50, y=230)
-result = Label(final1, width=46, borderwidth=2, relief="sunken", anchor="center")\
+result = Label(final1, textvariable=result_str, width=46, borderwidth=2, relief="sunken", anchor="center")\
     .place(x=50, y=265)
 
 button_in = Button(final1, text="In-Order", width=11, borderwidth=3).place(x=289, y=60)
@@ -115,5 +119,4 @@ button_pre = Button(final1, text="Pre-Order", width=11, borderwidth=3).place(x=2
 button_post = Button(final1, text="Post-Order", width=11, borderwidth=3).place(x=289, y=116)
 button_min = Button(final1, text="Min", width=11, borderwidth=3).place(x=289, y=144)
 button_max = Button(final1, text="Max", width=11, borderwidth=3).place(x=289, y=172)
-
 final1.mainloop()
