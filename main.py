@@ -127,6 +127,30 @@ def btn_submit():
         result_str.set(number_tree)
 
 
+def btn_sum():
+    if len(number_tree) == 0:
+        return
+    else:
+        name_tree = build_tree(number_tree)
+        result_str.set(name_tree.calculate_sum())
+
+
+def btn_delete():
+    try:
+        new_num = int(expression)
+        if new_num not in number_tree:
+            raise ValueError
+        if new_num == 0:
+            raise ValueError
+    except ValueError:
+        exp_clear()
+    else:
+        number_tree.remove(new_num)
+        inputs_str.set(number_tree)
+        result_str.set(number_tree)
+        exp_clear()
+
+
 expression = ""
 main_str = StringVar()
 inputs_str = StringVar()
@@ -150,8 +174,8 @@ button_d = Button(final1, text="D", width=4, height=2, borderwidth=3, command=bt
 
 button_enter = Button(final1, text="Enter", width=11, borderwidth=3, command=btn_enter).place(x=200, y=60)
 button_submit = Button(final1, text="Submit", width=11, borderwidth=3, command=btn_submit).place(x=200, y=88)
-button_sum = Button(final1, text="Sum", width=11, borderwidth=3).place(x=200, y=116)
-button_delete = Button(final1, text="Delete", width=11, borderwidth=3).place(x=200, y=144)
+button_sum = Button(final1, text="Sum", width=11, borderwidth=3, command=btn_sum).place(x=200, y=116)
+button_delete = Button(final1, text="Delete", width=11, borderwidth=3, command=btn_delete).place(x=200, y=144)
 button_clear = Button(final1, text="Clear", width=11, borderwidth=3).place(x=200, y=172)
 
 inputs = Label(final1, textvariable=inputs_str, width=46, borderwidth=2, relief="sunken", anchor="center")\
